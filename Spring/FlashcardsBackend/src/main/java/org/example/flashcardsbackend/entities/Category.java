@@ -19,4 +19,6 @@ public class Category {
     private Double masteryLevel;
     private Double completionRate;
 
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
+    private List<UserCategoryProgress> userProgresses;
 }

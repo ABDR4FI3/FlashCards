@@ -14,14 +14,14 @@ public class User {
     private String profileImage;
     private Double score;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private List<Role> roles;
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private Role role;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<UserCategoryProgress> categoryProgresses;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<UserQuizSetProgress> quizSetProgresses;
 
 }
