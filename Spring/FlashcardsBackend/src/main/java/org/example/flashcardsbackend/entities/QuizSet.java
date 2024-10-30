@@ -25,4 +25,6 @@ public class QuizSet {
     @OneToMany(mappedBy = "quizSet", cascade = CascadeType.ALL)
     private List<Question> questions;
 
+    @OneToMany(mappedBy = "quizSet", cascade = CascadeType.ALL)
+    private List<UserQuizSetProgress> userProgresses;
 }
